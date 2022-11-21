@@ -10,10 +10,10 @@
 		94F32EB4292A693E0065C081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32EB3292A693E0065C081 /* AppDelegate.swift */; };
 		94F32EB6292A693E0065C081 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32EB5292A693E0065C081 /* ViewController.swift */; };
 		94F32EB8292A693F0065C081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F32EB7292A693F0065C081 /* Assets.xcassets */; };
-		94F32EBB292A693F0065C081 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94F32EB9292A693F0065C081 /* Main.storyboard */; };
 		94F32EC6292A693F0065C081 /* QatarGilTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32EC5292A693F0065C081 /* QatarGilTests.swift */; };
 		94F32ED0292A693F0065C081 /* QatarGilUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32ECF292A693F0065C081 /* QatarGilUITests.swift */; };
 		94F32ED2292A693F0065C081 /* QatarGilUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32ED1292A693F0065C081 /* QatarGilUITestsLaunchTests.swift */; };
+		94F32EDF292B5A260065C081 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32EDE292B5A260065C081 /* main.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,13 +38,13 @@
 		94F32EB3292A693E0065C081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94F32EB5292A693E0065C081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		94F32EB7292A693F0065C081 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		94F32EBA292A693F0065C081 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		94F32EBC292A693F0065C081 /* QatarGil.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QatarGil.entitlements; sourceTree = "<group>"; };
 		94F32EC1292A693F0065C081 /* QatarGilTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QatarGilTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F32EC5292A693F0065C081 /* QatarGilTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QatarGilTests.swift; sourceTree = "<group>"; };
 		94F32ECB292A693F0065C081 /* QatarGilUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QatarGilUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F32ECF292A693F0065C081 /* QatarGilUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QatarGilUITests.swift; sourceTree = "<group>"; };
 		94F32ED1292A693F0065C081 /* QatarGilUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QatarGilUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		94F32EDE292B5A260065C081 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,8 +98,8 @@
 				94F32EB3292A693E0065C081 /* AppDelegate.swift */,
 				94F32EB5292A693E0065C081 /* ViewController.swift */,
 				94F32EB7292A693F0065C081 /* Assets.xcassets */,
-				94F32EB9292A693F0065C081 /* Main.storyboard */,
 				94F32EBC292A693F0065C081 /* QatarGil.entitlements */,
+				94F32EDE292B5A260065C081 /* main.swift */,
 			);
 			path = QatarGil;
 			sourceTree = "<group>";
@@ -226,7 +226,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				94F32EB8292A693F0065C081 /* Assets.xcassets in Resources */,
-				94F32EBB292A693F0065C081 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -253,6 +252,7 @@
 			files = (
 				94F32EB6292A693E0065C081 /* ViewController.swift in Sources */,
 				94F32EB4292A693E0065C081 /* AppDelegate.swift in Sources */,
+				94F32EDF292B5A260065C081 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,17 +287,6 @@
 			targetProxy = 94F32ECC292A693F0065C081 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		94F32EB9292A693F0065C081 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				94F32EBA292A693F0065C081 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		94F32ED3292A693F0065C081 /* Debug */ = {
