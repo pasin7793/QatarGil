@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		948731DC29376E880044A588 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 948731DB29376E880044A588 /* Then */; };
+		948731DF29376E970044A588 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 948731DE29376E970044A588 /* SnapKit */; };
+		948731E229376EA30044A588 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 948731E129376EA30044A588 /* Alamofire */; };
+		948731E529376EB10044A588 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 948731E429376EB10044A588 /* Kingfisher */; };
+		948731E829376F940044A588 /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948731E729376F940044A588 /* MatchCell.swift */; };
+		948731EB293770610044A588 /* Match.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948731EA293770610044A588 /* Match.swift */; };
 		94F32EB4292A693E0065C081 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32EB3292A693E0065C081 /* AppDelegate.swift */; };
 		94F32EB6292A693E0065C081 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94F32EB5292A693E0065C081 /* ViewController.swift */; };
 		94F32EB8292A693F0065C081 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94F32EB7292A693F0065C081 /* Assets.xcassets */; };
@@ -34,6 +40,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		948731E729376F940044A588 /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
+		948731EA293770610044A588 /* Match.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match.swift; sourceTree = "<group>"; };
 		94F32EB0292A693E0065C081 /* QatarGil.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QatarGil.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		94F32EB3292A693E0065C081 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94F32EB5292A693E0065C081 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +60,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948731E529376EB10044A588 /* Kingfisher in Frameworks */,
+				948731E229376EA30044A588 /* Alamofire in Frameworks */,
+				948731DC29376E880044A588 /* Then in Frameworks */,
+				948731DF29376E970044A588 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +84,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		948731E629376F780044A588 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				948731E729376F940044A588 /* MatchCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		948731E9293770390044A588 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				948731EA293770610044A588 /* Match.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		94F32EA7292A693E0065C081 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +123,8 @@
 		94F32EB2292A693E0065C081 /* QatarGil */ = {
 			isa = PBXGroup;
 			children = (
+				948731E9293770390044A588 /* Model */,
+				948731E629376F780044A588 /* View */,
 				94F32EB3292A693E0065C081 /* AppDelegate.swift */,
 				94F32EB5292A693E0065C081 /* ViewController.swift */,
 				94F32EB7292A693F0065C081 /* Assets.xcassets */,
@@ -137,6 +167,12 @@
 			dependencies = (
 			);
 			name = QatarGil;
+			packageProductDependencies = (
+				948731DB29376E880044A588 /* Then */,
+				948731DE29376E970044A588 /* SnapKit */,
+				948731E129376EA30044A588 /* Alamofire */,
+				948731E429376EB10044A588 /* Kingfisher */,
+			);
 			productName = QatarGil;
 			productReference = 94F32EB0292A693E0065C081 /* QatarGil.app */;
 			productType = "com.apple.product-type.application";
@@ -209,6 +245,12 @@
 				Base,
 			);
 			mainGroup = 94F32EA7292A693E0065C081;
+			packageReferences = (
+				948731DA29376E880044A588 /* XCRemoteSwiftPackageReference "Then" */,
+				948731DD29376E970044A588 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				948731E029376EA30044A588 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				948731E329376EB10044A588 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 94F32EB1292A693E0065C081 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -250,8 +292,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948731E829376F940044A588 /* MatchCell.swift in Sources */,
 				94F32EB6292A693E0065C081 /* ViewController.swift in Sources */,
 				94F32EB4292A693E0065C081 /* AppDelegate.swift in Sources */,
+				948731EB293770610044A588 /* Match.swift in Sources */,
 				94F32EDF292B5A260065C081 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,8 +458,9 @@
 				DEVELOPMENT_TEAM = ZW43FFWC7M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSMainStoryboardFile = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -441,8 +486,9 @@
 				DEVELOPMENT_TEAM = ZW43FFWC7M;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSMainStoryboardFile = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -568,6 +614,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		948731DA29376E880044A588 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		948731DD29376E970044A588 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+		948731E029376EA30044A588 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		948731E329376EB10044A588 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		948731DB29376E880044A588 /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 948731DA29376E880044A588 /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		948731DE29376E970044A588 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 948731DD29376E970044A588 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		948731E129376EA30044A588 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 948731E029376EA30044A588 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		948731E429376EB10044A588 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 948731E329376EB10044A588 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 94F32EA8292A693E0065C081 /* Project object */;
 }
