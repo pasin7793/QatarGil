@@ -11,7 +11,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         
         if let statusButton = statusItem.button{
-            statusButton.image = NSImage(systemSymbolName: "soccerball.inverse", accessibilityDescription: "soccerball")
+            statusButton.image = NSImage(systemSymbolName: "soccerball", accessibilityDescription: "soccerball")
             statusButton.action = #selector(togglePopover)
         }
         self.popover = NSPopover()

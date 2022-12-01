@@ -13,13 +13,14 @@ import Kingfisher
 class ViewController: NSViewController {
 
     private let tableView = NSTableView().then{
-        /*$0.register(NSNib(nibNamed: "MatchCell", bundle: nil), forIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MatchCell"))*/
-        $0.makeView(withIdentifier: NSUserInterfaceItemIdentifier("MatchCell"), owner: ViewController.self)
+        //$0.makeView(withIdentifier: NSUserInterfaceItemIdentifier("MatchCell"), owner: MatchCell.self)
         $0.translatesAutoresizingMaskIntoConstraints = false
-        $0.rowHeight = 200
+        $0.rowHeight = 100
+        $0.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier("MatchCell")))
     }
     
     private let viewModel = MainVM()
+    
     
     func addView(){
         view.addSubview(tableView)
@@ -59,14 +60,18 @@ class ViewController: NSViewController {
 
 extension ViewController: NSTableViewDelegate, NSTableViewDataSource{
     
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        guard let cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MatchCell"), owner: self) as? MatchCell else {
-                return NSTableCellView()
-            }
-        return cellView
-    }
+    
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return viewModel.match?.matches.count ?? 0
+        //return viewModel.match?.matches.count ?? 0
+        return 4
+    }
+    
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        return viewModel.match?.matches[row]
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MatchCell"), owner: self) ?? MatchCell()
     }
 }

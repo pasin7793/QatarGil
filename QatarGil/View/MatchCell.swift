@@ -10,14 +10,29 @@ final class MatchCell: NSTableCellView{
     private let homeFlagImageView = NSImageView()
     
     private let homeTextView = NSTextView().then{
-        $0.font = NSFont(name: "Helvetica-bold", size: 16)
+        $0.wantsLayer = true
+        $0.font = NSFont(name: "Helvetica", size: 16)
         $0.alignment = .center
+        $0.textColor = NSColor.white
+        $0.backgroundColor = .clear
+        $0.string = "poland"
     }
     
-    override func draw(_ dirtyRect: NSRect) {
+    /*override func draw(_ dirtyRect: NSRect) {
         super.draw(dirtyRect)
         addView()
         setLayout()
+    }*/
+    
+    override init(frame frameRect: NSRect) {
+        super.init(frame: frameRect)
+        self.identifier = NSUserInterfaceItemIdentifier("MatchCell")
+        addView()
+        setLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func addView() {
@@ -33,10 +48,9 @@ final class MatchCell: NSTableCellView{
             make.left.equalTo(21)
         }
         homeTextView.snp.makeConstraints { make in
-            make.width.equalTo(232)
-            make.height.equalTo(100)
-            make.trailing.equalToSuperview()
-            make.centerY.equalToSuperview()
+            make.center.equalToSuperview()
+            make.width.equalTo(100)
+            make.height.equalTo(30)
         }
     }
     func bind(model: MatchList) {
