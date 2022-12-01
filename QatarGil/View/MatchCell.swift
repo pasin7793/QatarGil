@@ -1,5 +1,5 @@
 
-import Foundation
+import Kingfisher
 import SnapKit
 import Then
 import Cocoa
@@ -7,9 +7,9 @@ import AppKit
 
 final class MatchCell: NSTableCellView{
     
-    private let beerImage = NSImageView()
+    private let homeFlagImageView = NSImageView()
     
-    private let descriptionLabel = NSTextView().then{
+    private let homeTextView = NSTextView().then{
         $0.font = NSFont(name: "Helvetica-bold", size: 16)
         $0.alignment = .center
     }
@@ -21,18 +21,18 @@ final class MatchCell: NSTableCellView{
     }
     
     func addView() {
-        self.addSubview(beerImage)
-        self.addSubview(descriptionLabel)
+        self.addSubview(homeFlagImageView)
+        self.addSubview(homeTextView)
     }
     func setLayout(){
         
-        beerImage.snp.makeConstraints { make in
+        homeFlagImageView.snp.makeConstraints { make in
             make.width.equalTo(120)
             make.height.equalTo(135)
-            make.top.equalTo(descriptionLabel)
+            make.top.equalTo(homeTextView)
             make.left.equalTo(21)
         }
-        descriptionLabel.snp.makeConstraints { make in
+        homeTextView.snp.makeConstraints { make in
             make.width.equalTo(232)
             make.height.equalTo(100)
             make.trailing.equalToSuperview()
@@ -41,8 +41,7 @@ final class MatchCell: NSTableCellView{
     }
     func bind(model: Match) {
         DispatchQueue.main.async {
-            self.beerImage.kf.setImage(with: URL(string: model.imageUrl))
-            self.descriptionLabel.text = model.description
+            self.homeTextView.string = model.competitionName.first?.competitionNameDescription ?? ""
         }
     }
 }
