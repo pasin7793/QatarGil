@@ -16,7 +16,12 @@ class ViewController: NSViewController {
         //$0.makeView(withIdentifier: NSUserInterfaceItemIdentifier("MatchCell"), owner: MatchCell.self)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.rowHeight = 100
-        $0.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier("MatchCell")))
+        //$0.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier("MatchCel")))
+        $0.headerView = nil
+    }
+    
+    private var mainColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "MatchCell")).then{
+        $0.minWidth = 375
     }
     
     private let viewModel = MainVM()
@@ -38,6 +43,7 @@ class ViewController: NSViewController {
         tableView.dataSource = self
         addView()
         setLayout()
+        tableView.addTableColumn(mainColumn)
     }
 
     override func loadView() {
@@ -60,8 +66,6 @@ class ViewController: NSViewController {
 
 extension ViewController: NSTableViewDelegate, NSTableViewDataSource{
     
-    
-    
     func numberOfRows(in tableView: NSTableView) -> Int {
         //return viewModel.match?.matches.count ?? 0
         return 4
@@ -72,6 +76,6 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource{
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        return tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "MatchCell"), owner: self) ?? MatchCell()
+        return MatchCell()
     }
 }
