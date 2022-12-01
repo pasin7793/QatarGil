@@ -67,6 +67,6 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource{
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return viewModel.match.listener.debugDescription.count
+        return viewModel.match?.matches.count ?? 0
     }
 }

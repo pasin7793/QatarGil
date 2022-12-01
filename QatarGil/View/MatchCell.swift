@@ -39,9 +39,9 @@ final class MatchCell: NSTableCellView{
             make.centerY.equalToSuperview()
         }
     }
-    func bind(model: Match) {
+    func bind(model: MatchList) {
         DispatchQueue.main.async {
-            self.homeTextView.string = model.competitionName.first?.competitionNameDescription ?? ""
+            self.homeTextView.string = model.home.teamName.first?.teamDescription ?? ""
         }
     }
 }

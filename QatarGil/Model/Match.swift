@@ -1,7 +1,7 @@
 
 import Foundation
 
-/*struct Match: Codable{
+struct Match: Codable{
     let matches: [MatchList]
 }
 
@@ -9,6 +9,12 @@ struct MatchList: Codable{
     let groupName: [CompetitionName]
     let home: Home
     let away: Away
+    
+    enum CodingKeys: String, CodingKey{
+        case groupName = "GroupName"
+        case home = "Home"
+        case away = "Away"
+    }
 }
 
 struct CompetitionName: Codable{
@@ -37,6 +43,10 @@ struct AwayTeamName: Codable{
 
 struct Home: Codable{
     let teamName: [HomeTeamName]
+    
+    enum CodingKeys: String, CodingKey{
+        case teamName = "TeamName"
+    }
 }
 
 struct HomeTeamName: Codable{
@@ -45,9 +55,11 @@ struct HomeTeamName: Codable{
     enum CodingKeys: String, CodingKey{
         case teamDescription = "Description"
     }
-}*/
+}
 
-struct MatchResponse: Codable{
+
+
+/*struct MatchResponse: Codable{
     let from, to: Date
     let matches: [Match]
 }
@@ -81,6 +93,6 @@ struct CompetitionName: Codable {
     enum CodingKeys: String, CodingKey{
         case competitionNameDescription = "Description"
     }
-}
+}*/
 
 //홈국가 이름, 어웨이국가 이름, 그룹, 시간(될 수 있으면), 국기이미지
