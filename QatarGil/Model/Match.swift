@@ -54,49 +54,33 @@ struct MatchResponse: Codable{
 
 // MARK: - Match
 struct Match: Codable {
-    let stageName, groupName, competitionName, seasonName: [CompetitionName]
-    let date, localDate: Date
+    let groupName, competitionName: [CompetitionName]
     let home, away: Away
-    let stadium: Stadium
-    let officials: [Official]
+    
+    enum CodingKeys: String, CodingKey{
+        case groupName = "GroupName"
+        case competitionName = "CompetitionName"
+        case home = "Home"
+        case away = "Away"
+    }
 }
 
 // MARK: - Away
 struct Away: Codable {
-    let teamType, ageType: Int
     let teamName: [CompetitionName]
-    let abbreviation, shortClubName: String
-    let footballType, gender: Int
-    let idAssociation: String
+    
+    enum CodingKeys: String, CodingKey{
+        case teamName = "TeamName"
+    }
 }
 
 // MARK: - CompetitionName
 struct CompetitionName: Codable {
     let competitionNameDescription: String
-}
-
-// MARK: - Official
-struct Official: Codable {
-    let idCountry, officialID: String
-    let nameShort, name: [CompetitionName]
-    let officialType: Int
-    let typeLocalized: [CompetitionName]
-}
-
-// MARK: - Stadium
-struct Stadium: Codable {
-    let idStadium: String
-    let name: [CompetitionName]
-    let roof: Bool
-    let idCity: String
-    let cityName: [CompetitionName]
-    let idCountry: String
-    let properties: Properties
-}
-
-// MARK: - Properties
-struct Properties: Codable {
-    let idIFES: String
+    
+    enum CodingKeys: String, CodingKey{
+        case competitionNameDescription = "Description"
+    }
 }
 
 //홈국가 이름, 어웨이국가 이름, 그룹, 시간(될 수 있으면), 국기이미지
