@@ -5,9 +5,9 @@ import Cocoa
 
 final class MainVM{
     
-    //private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-2&utc_offset=10"
-    private let urlString = "asdf"
-    var match: Match?
+    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-2&utc_offset=10"
+    //private let urlString = "asdf"
+    var match: [MatchList] = []
     
     let headers: HTTPHeaders = [
         "X-RapidAPI-Key": "cf945f8bd3mshbd71319f3e9f0e7p1c21c5jsn36fab2c4e578",
@@ -15,15 +15,15 @@ final class MainVM{
     ]
     
     func fetchData(completion: @escaping ()->()) {
-        AF.request(urlString, headers: headers).responseData { (response) in
+        AF.request(urlString, headers: headers).responseJSON { (response) in
             print(response)
             switch response.result {
-            case .success:
+            case .success(let res):
                 do {
-                    let decoder = JSONDecoder()
-                    let json = try decoder.decode(Match.self, from: response.data!)
-                    self.match = json
-                    print(self.match!)
+                    let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
+                    let json = try JSONDecoder().decode(Match.self, from: response.data!)
+                    self.match = json.matches
+                    print(self.match)
                     completion()
                     } catch let DecodingError.dataCorrupted(context) {
                         print(context)

@@ -67,15 +67,16 @@ class ViewController: NSViewController {
 extension ViewController: NSTableViewDelegate, NSTableViewDataSource{
     
     func numberOfRows(in tableView: NSTableView) -> Int {
-        //return viewModel.match?.matches.count ?? 0
-        return 4
+        return viewModel.match.count
     }
     
-    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return viewModel.match?.matches[row]
-    }
+    /*func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        return viewModel.match[row]
+    }*/
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        return MatchCell()
+        let cell =  MatchCell()
+        cell.bind(model: viewModel.match[row])
+        return cell
     }
 }
