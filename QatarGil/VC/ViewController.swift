@@ -11,6 +11,8 @@ import Then
 import Kingfisher
 
 class ViewController: NSViewController {
+    
+    private let logoImageView = NSImageView(image: NSImage(systemSymbolName: "soccerball", accessibilityDescription: "soccerball")!)
 
     private let tableView = NSTableView().then{
         //$0.makeView(withIdentifier: NSUserInterfaceItemIdentifier("MatchCell"), owner: MatchCell.self)
@@ -29,11 +31,17 @@ class ViewController: NSViewController {
     
     func addView(){
         view.addSubview(tableView)
+        view.addSubview(logoImageView)
     }
     
     func setLayout(){
         tableView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        logoImageView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(5)
+            make.size.equalTo(30)
         }
     }
     

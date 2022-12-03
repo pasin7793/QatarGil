@@ -97,14 +97,14 @@ final class MatchCell: NSTableCellView{
         }
         
         homeTextView.snp.makeConstraints { make in
-            make.left.equalTo(0)
+            make.centerX.equalTo(homeFlagImageView)
             make.bottom.equalToSuperview().inset(5)
             make.width.equalTo(90)
             make.height.equalTo(27)
         }
         
         awayTextView.snp.makeConstraints { make in
-            make.right.equalTo(0)
+            make.centerX.equalTo(awayFlagImageView)
             make.bottom.equalToSuperview().inset(5)
             make.width.equalTo(90)
             make.height.equalTo(27)
