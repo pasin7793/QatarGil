@@ -21,7 +21,7 @@ class ViewController: NSViewController {
     }
     
     private var mainColumn = NSTableColumn(identifier: NSUserInterfaceItemIdentifier(rawValue: "MatchCell")).then{
-        $0.minWidth = 375
+        $0.minWidth = 360
     }
     
     private let viewModel = MainVM()

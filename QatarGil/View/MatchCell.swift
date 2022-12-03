@@ -56,6 +56,15 @@ final class MatchCell: NSTableCellView{
         $0.alignment = .center
     }
     
+    private let groupNameTextView = NSTextView().then{
+        $0.wantsLayer = true
+        $0.backgroundColor = .clear
+        $0.isSelectable = false
+        $0.isSelectable = false
+        $0.font = NSFont(name: "Helvetica", size: 12)
+        $0.alignment = .right
+    }
+    
     private let viewModel = MainVM()
     
     override init(frame frameRect: NSRect) {
@@ -77,6 +86,7 @@ final class MatchCell: NSTableCellView{
         self.addSubview(awayFlagImageView)
         self.addSubview(homeScoreTextView)
         self.addSubview(awayScoreTextView)
+        self.addSubview(groupNameTextView)
     }
     func setLayout(){
 
@@ -100,7 +110,7 @@ final class MatchCell: NSTableCellView{
             make.height.equalTo(27)
         }
         vsTextView.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.center.equalToSuperview().offset(5)
             make.size.equalTo(30)
         }
         
@@ -121,6 +131,13 @@ final class MatchCell: NSTableCellView{
             make.right.equalTo(vsTextView).offset(60)
             make.size.equalTo(30)
         }
+        
+        groupNameTextView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().offset(15)
+            make.height.equalTo(30)
+            make.width.equalTo(60)
+        }
     }
     func bind(model: MatchList){
         DispatchQueue.main.async {
@@ -130,6 +147,7 @@ final class MatchCell: NSTableCellView{
             self.awayTextView.string = model.away.teamName.first?.teamDescription ?? ""
             self.homeScoreTextView.string = "\(model.home.score)"
             self.awayScoreTextView.string = "\(model.away.score)"
+            self.groupNameTextView.string = model.groupName.first?.groupDescription ?? ""
         }
     }
 }
