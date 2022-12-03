@@ -12,7 +12,6 @@ final class MatchCell: NSTableCellView{
     private let awayFlagImageView = NSImageView()
     
     private let homeTextView = NSTextView().then{
-        $0.string = "Saudi Arabia"
         $0.backgroundColor = .clear
         $0.isSelectable = false
         $0.isSelectable = false
@@ -22,7 +21,6 @@ final class MatchCell: NSTableCellView{
     
     private let awayTextView = NSTextView().then{
         $0.wantsLayer = true
-        $0.string = "Argentina"
         $0.backgroundColor = .clear
         $0.isSelectable = false
         $0.isSelectable = false
@@ -36,7 +34,25 @@ final class MatchCell: NSTableCellView{
         $0.backgroundColor = .clear
         $0.isSelectable = false
         $0.isSelectable = false
-        $0.font = NSFont(name: "Helvetica-Bold", size: 13)
+        $0.font = NSFont(name: "Helvetica-Bold", size: 10)
+        $0.alignment = .center
+    }
+    
+    private let homeScoreTextView = NSTextView().then{
+        $0.wantsLayer = true
+        $0.backgroundColor = .clear
+        $0.isSelectable = false
+        $0.isSelectable = false
+        $0.font = NSFont(name: "Helvetica-Bold", size: 20)
+        $0.alignment = .center
+    }
+    
+    private let awayScoreTextView = NSTextView().then{
+        $0.wantsLayer = true
+        $0.backgroundColor = .clear
+        $0.isSelectable = false
+        $0.isSelectable = false
+        $0.font = NSFont(name: "Helvetica-Bold", size: 20)
         $0.alignment = .center
     }
     
@@ -47,8 +63,6 @@ final class MatchCell: NSTableCellView{
         self.identifier = NSUserInterfaceItemIdentifier("MatchCell")
         addView()
         setLayout()
-        //self.homeFlagImageView.kf.setImage(with: URL(string: "https://www.printableworldflags.com/icon-flags/48/France.png"))
-        //self.awayFlagImageView.kf.setImage(with: URL(string: "https://www.printableworldflags.com/icon-flags/48/Japan.png"))
     }
     
     required init?(coder: NSCoder) {
@@ -61,6 +75,8 @@ final class MatchCell: NSTableCellView{
         self.addSubview(awayTextView)
         self.addSubview(vsTextView)
         self.addSubview(awayFlagImageView)
+        self.addSubview(homeScoreTextView)
+        self.addSubview(awayScoreTextView)
     }
     func setLayout(){
 
@@ -93,6 +109,18 @@ final class MatchCell: NSTableCellView{
             make.bottom.equalToSuperview().inset(45)
             make.size.equalTo(30)
         }
+        
+        homeScoreTextView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalTo(vsTextView).offset(-60)
+            make.size.equalTo(30)
+        }
+        
+        awayScoreTextView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.equalTo(vsTextView).offset(60)
+            make.size.equalTo(30)
+        }
     }
     func bind(model: MatchList){
         DispatchQueue.main.async {
@@ -100,6 +128,8 @@ final class MatchCell: NSTableCellView{
             self.homeTextView.string = model.home.teamName.first?.teamDescription ?? ""
             self.awayFlagImageView.kf.setImage(with: URL(string: "https://www.printableworldflags.com/icon-flags/48/\(model.away.teamName.first?.teamDescription ?? "").png"))
             self.awayTextView.string = model.away.teamName.first?.teamDescription ?? ""
+            self.homeScoreTextView.string = "\(model.home.score)"
+            self.awayScoreTextView.string = "\(model.away.score)"
         }
     }
 }

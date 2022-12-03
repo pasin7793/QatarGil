@@ -5,8 +5,18 @@ import Cocoa
 
 final class MainVM{
     
-    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-2&utc_offset=10"
+    func getCurrentDate() -> String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        let result = formatter.string(from: date)
+        return result
+    }
+    
+    
+    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-3&utc_offset=10"
     //private let urlString = "asdf"
+    
     var match: [MatchList] = []
     
     let headers: HTTPHeaders = [
@@ -15,8 +25,8 @@ final class MainVM{
     ]
     
     func fetchData(completion: @escaping ()->()) {
-        AF.request(urlString, headers: headers).responseJSON { (response) in
-            print(response)
+        AF.request(urlString,headers: headers).responseJSON { (response) in
+            print(self.getCurrentDate())
             switch response.result {
             case .success(let res):
                 do {

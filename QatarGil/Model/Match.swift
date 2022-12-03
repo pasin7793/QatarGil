@@ -27,9 +27,11 @@ struct CompetitionName: Codable{
 
 struct Away: Codable{
     let teamName: [AwayTeamName]
+    let score: Int
     
     enum CodingKeys: String, CodingKey{
         case teamName = "TeamName"
+        case score = "Score"
     }
 }
 
@@ -43,9 +45,11 @@ struct AwayTeamName: Codable{
 
 struct Home: Codable{
     let teamName: [HomeTeamName]
+    let score: Int
     
     enum CodingKeys: String, CodingKey{
         case teamName = "TeamName"
+        case score = "Score"
     }
 }
 
@@ -56,43 +60,3 @@ struct HomeTeamName: Codable{
         case teamDescription = "Description"
     }
 }
-
-
-
-/*struct MatchResponse: Codable{
-    let from, to: Date
-    let matches: [Match]
-}
-
-// MARK: - Match
-struct Match: Codable {
-    let groupName, competitionName: [CompetitionName]
-    let home, away: Away
-    
-    enum CodingKeys: String, CodingKey{
-        case groupName = "GroupName"
-        case competitionName = "CompetitionName"
-        case home = "Home"
-        case away = "Away"
-    }
-}
-
-// MARK: - Away
-struct Away: Codable {
-    let teamName: [CompetitionName]
-    
-    enum CodingKeys: String, CodingKey{
-        case teamName = "TeamName"
-    }
-}
-
-// MARK: - CompetitionName
-struct CompetitionName: Codable {
-    let competitionNameDescription: String
-    
-    enum CodingKeys: String, CodingKey{
-        case competitionNameDescription = "Description"
-    }
-}*/
-
-//홈국가 이름, 어웨이국가 이름, 그룹, 시간(될 수 있으면), 국기이미지
