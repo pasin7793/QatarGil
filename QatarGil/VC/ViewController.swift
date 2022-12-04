@@ -10,7 +10,7 @@ import SnapKit
 import Then
 import Kingfisher
 
-class ViewController: NSViewController {
+final class ViewController: NSViewController {
     
     private let tableView = NSTableView().then{
         $0.translatesAutoresizingMaskIntoConstraints = false

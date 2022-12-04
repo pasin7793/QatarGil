@@ -9,11 +9,13 @@ struct MatchList: Codable{
     let groupName: [CompetitionName]
     let home: Home
     let away: Away
+    let date: Date
     
     enum CodingKeys: String, CodingKey{
         case groupName = "GroupName"
         case home = "Home"
         case away = "Away"
+        case date = "Date"
     }
 }
 
