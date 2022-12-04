@@ -14,13 +14,13 @@ final class MainVM{
     }
     
     
-    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-3&utc_offset=10"
+    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-1&utc_offset=10"
     //private let urlString = "asdf"
     
     var match: [MatchList] = []
     
     let headers: HTTPHeaders = [
-        "X-RapidAPI-Key": "cf945f8bd3mshbd71319f3e9f0e7p1c21c5jsn36fab2c4e578",
+        "X-RapidAPI-Key": "1b4d6acb8dmsh5bf91d5ce42bc7ap167b71jsnb79d31aac6b3",
         "X-RapidAPI-Host": "fifa-2022-schedule-and-stats.p.rapidapi.com"
     ]
     

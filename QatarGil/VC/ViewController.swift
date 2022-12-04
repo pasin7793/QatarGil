@@ -12,13 +12,9 @@ import Kingfisher
 
 class ViewController: NSViewController {
     
-    private let logoImageView = NSImageView(image: NSImage(systemSymbolName: "soccerball", accessibilityDescription: "soccerball")!)
-
     private let tableView = NSTableView().then{
-        //$0.makeView(withIdentifier: NSUserInterfaceItemIdentifier("MatchCell"), owner: MatchCell.self)
         $0.translatesAutoresizingMaskIntoConstraints = false
         $0.rowHeight = 100
-        //$0.addTableColumn(NSTableColumn(identifier: NSUserInterfaceItemIdentifier("MatchCel")))
         $0.headerView = nil
     }
     
@@ -28,20 +24,31 @@ class ViewController: NSViewController {
     
     private let viewModel = MainVM()
     
+    private let mainTextView = NSTextView().then{
+        $0.wantsLayer = true
+        $0.string = "Today's Match"
+        $0.backgroundColor = .clear
+        $0.isSelectable = false
+        $0.isSelectable = false
+        $0.font = NSFont(name: "Helvetica-Bold", size: 13)
+        $0.alignment = .center
+    }
+    
     
     func addView(){
         view.addSubview(tableView)
-        view.addSubview(logoImageView)
+        view.addSubview(mainTextView)
     }
     
     func setLayout(){
         tableView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            make.edges.equalToSuperview().inset(NSEdgeInsets(top: 30, left: 0, bottom: 0, right: 0))
         }
-        logoImageView.snp.makeConstraints { make in
+        mainTextView.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.top.equalToSuperview().offset(5)
-            make.size.equalTo(30)
+            make.top.equalToSuperview().offset(15)
+            make.height.equalTo(30)
+            make.width.equalTo(100)
         }
     }
     
@@ -77,10 +84,6 @@ extension ViewController: NSTableViewDelegate, NSTableViewDataSource{
     func numberOfRows(in tableView: NSTableView) -> Int {
         return viewModel.match.count
     }
-    
-    /*func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return viewModel.match[row]
-    }*/
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let cell =  MatchCell()
