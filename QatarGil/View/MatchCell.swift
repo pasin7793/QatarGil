@@ -141,8 +141,8 @@ final class MatchCell: NSTableCellView{
     }
     func bind(model: MatchList){
         DispatchQueue.main.async {
-            self.homeFlagImageView.kf.setImage(with: URL(string: "https://www.printableworldflags.com/icon-flags/48/\(model.home.teamName.first?.teamDescription ?? "").png"))
-            self.homeTextView.string = model.home.teamName.first?.teamDescription ?? ""
+            self.homeFlagImageView.kf.setImage(with: URL(string: "https://www.printableworldflags.com/icon-flags/48/\(model.home.teamName.first?.teamDescription.rawValue ?? "").png"))
+            self.homeTextView.string = model.home.teamName.first?.teamDescription.rawValue ?? ""
             self.awayFlagImageView.kf.setImage(with: URL(string: "https://www.printableworldflags.com/icon-flags/48/\(model.away.teamName.first?.teamDescription ?? "").png"))
             self.awayTextView.string = model.away.teamName.first?.teamDescription ?? ""
             self.homeScoreTextView.string = "\(model.home.score)"

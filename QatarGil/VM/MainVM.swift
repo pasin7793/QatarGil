@@ -14,7 +14,7 @@ final class MainVM{
     }
     
     
-    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-1&utc_offset=10"
+    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-3&utc_offset=10"
     //private let urlString = "asdf"
     
     var match: [MatchList] = []
@@ -24,14 +24,18 @@ final class MainVM{
         "X-RapidAPI-Host": "fifa-2022-schedule-and-stats.p.rapidapi.com"
     ]
     
+    
     func fetchData(completion: @escaping ()->()) {
         AF.request(urlString,headers: headers).responseJSON { (response) in
             print(self.getCurrentDate())
             switch response.result {
             case .success(let res):
                 do {
+                    let decoder = JSONDecoder().then{
+                        $0.dateDecodingStrategy = .iso8601
+                    }
                     let jsonData = try JSONSerialization.data(withJSONObject: res, options: .prettyPrinted)
-                    let json = try JSONDecoder().decode(Match.self, from: response.data!)
+                    let json = try decoder.decode(Match.self, from: response.data!)
                     self.match = json.matches
                     print(self.match)
                     completion()
