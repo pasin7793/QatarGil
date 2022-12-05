@@ -38,7 +38,7 @@ struct Away: Codable{
 }
 
 struct AwayTeamName: Codable{
-    let teamDescription: String
+    let teamDescription: Country
     
     enum CodingKeys: String, CodingKey{
         case teamDescription = "Description"
