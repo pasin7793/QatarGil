@@ -10,12 +10,16 @@ struct MatchList: Codable{
     let home: Home
     let away: Away
     let date: Date
+    let homeTeamPenaltyScore: Int
+    let awayTeamPenaltyScore: Int
     
     enum CodingKeys: String, CodingKey{
         case groupName = "GroupName"
         case home = "Home"
         case away = "Away"
         case date = "Date"
+        case homeTeamPenaltyScore = "HomeTeamPenaltyScore"
+        case awayTeamPenaltyScore = "AwayTeamPenaltyScore"
     }
 }
 
@@ -29,7 +33,7 @@ struct CompetitionName: Codable{
 
 struct Away: Codable{
     let teamName: [AwayTeamName]
-    let score: Int = 0
+    let score: Int
     
     enum CodingKeys: String, CodingKey{
         case teamName = "TeamName"
@@ -47,7 +51,7 @@ struct AwayTeamName: Codable{
 
 struct Home: Codable{
     let teamName: [HomeTeamName]
-    let score: Int = 0
+    let score: Int
     
     enum CodingKeys: String, CodingKey{
         case teamName = "TeamName"

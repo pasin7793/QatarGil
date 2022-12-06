@@ -14,13 +14,13 @@ final class MainVM{
     }
     
     
-    //private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-7&utc_offset=10"
-    private let urlString = "asdf"
+    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-7&utc_offset=10"
+    //private let urlString = "asdf"
     
     var match: [MatchList] = []
     
     let headers: HTTPHeaders = [
-        "X-RapidAPI-Key": "1b4d6acb8dmsh5bf91d5ce42bc7ap167b71jsnb79d31aac6b3",
+        "X-RapidAPI-Key": "02f619197amsh44b871e7ad0a89ap1c7160jsn297f51764363",
         "X-RapidAPI-Host": "fifa-2022-schedule-and-stats.p.rapidapi.com"
     ]
     
@@ -62,4 +62,6 @@ final class MainVM{
             }
         }
     }
+    
+    
 }

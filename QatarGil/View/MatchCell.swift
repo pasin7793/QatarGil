@@ -14,7 +14,6 @@ final class MatchCell: NSTableCellView{
     private let homeTextView = NSTextView().then{
         $0.backgroundColor = .clear
         $0.isSelectable = false
-        $0.isSelectable = false
         $0.font = NSFont(name: "Helvetica", size: 12)
         $0.alignment = .center
     }
@@ -22,7 +21,6 @@ final class MatchCell: NSTableCellView{
     private let awayTextView = NSTextView().then{
         $0.wantsLayer = true
         $0.backgroundColor = .clear
-        $0.isSelectable = false
         $0.isSelectable = false
         $0.font = NSFont(name: "Helvetica", size: 12)
         $0.alignment = .center
@@ -33,7 +31,6 @@ final class MatchCell: NSTableCellView{
         $0.string = "VS"
         $0.backgroundColor = .clear
         $0.isSelectable = false
-        $0.isSelectable = false
         $0.font = NSFont(name: "Helvetica-Bold", size: 10)
         $0.alignment = .center
     }
@@ -42,8 +39,7 @@ final class MatchCell: NSTableCellView{
         $0.wantsLayer = true
         $0.backgroundColor = .clear
         $0.isSelectable = false
-        $0.isSelectable = false
-        $0.font = NSFont(name: "Helvetica-Bold", size: 20)
+        $0.font = NSFont(name: "Helvetica-Bold", size: 22)
         $0.alignment = .center
     }
     
@@ -51,8 +47,32 @@ final class MatchCell: NSTableCellView{
         $0.wantsLayer = true
         $0.backgroundColor = .clear
         $0.isSelectable = false
+        $0.font = NSFont(name: "Helvetica-Bold", size: 22)
+        $0.alignment = .center
+    }
+    
+    private let typeTextView = NSTextView().then{
+        $0.wantsLayer = true
+        $0.string = "-"
+        $0.backgroundColor = .clear
         $0.isSelectable = false
-        $0.font = NSFont(name: "Helvetica-Bold", size: 20)
+        $0.font = NSFont(name: "Helvetica-Bold", size: 10)
+        $0.alignment = .center
+    }
+    
+    private let homePenaltyScoreTextView = NSTextView().then{
+        $0.wantsLayer = true
+        $0.backgroundColor = .clear
+        $0.isSelectable = false
+        $0.font = NSFont(name: "Helvetica-Bold", size: 13)
+        $0.alignment = .center
+    }
+    
+    private let awayPenaltyScoreTextView = NSTextView().then{
+        $0.wantsLayer = true
+        $0.backgroundColor = .clear
+        $0.isSelectable = false
+        $0.font = NSFont(name: "Helvetica-Bold", size: 13)
         $0.alignment = .center
     }
     
@@ -87,6 +107,9 @@ final class MatchCell: NSTableCellView{
         self.addSubview(homeScoreTextView)
         self.addSubview(awayScoreTextView)
         self.addSubview(groupNameTextView)
+        self.addSubview(typeTextView)
+        self.addSubview(homePenaltyScoreTextView)
+        self.addSubview(awayPenaltyScoreTextView)
     }
     func setLayout(){
 
@@ -138,6 +161,23 @@ final class MatchCell: NSTableCellView{
             make.height.equalTo(30)
             make.width.equalTo(60)
         }
+        
+        typeTextView.snp.makeConstraints { make in
+            make.centerX.equalTo(vsTextView)
+            make.top.equalTo(vsTextView).offset(15)
+            make.size.equalTo(30)
+        }
+        
+        homePenaltyScoreTextView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().offset(20)
+            make.left.equalTo(vsTextView).offset(-10)
+            make.size.equalTo(30)
+        }
+        awayPenaltyScoreTextView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview().offset(20)
+            make.left.equalTo(vsTextView).offset(10)
+            make.size.equalTo(30)
+        }
     }
     func bind(model: MatchList){
         DispatchQueue.main.async {
@@ -150,6 +190,8 @@ final class MatchCell: NSTableCellView{
             self.homeScoreTextView.string = "\(model.home.score)"
             self.awayScoreTextView.string = "\(model.away.score)"
             self.groupNameTextView.string = model.groupName.first?.groupDescription ?? ""
+            self.homePenaltyScoreTextView.string = "\(model.homeTeamPenaltyScore)"
+            self.awayPenaltyScoreTextView.string = "\(model.awayTeamPenaltyScore)"
         }
     }
 }
