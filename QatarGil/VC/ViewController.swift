@@ -34,10 +34,16 @@ final class ViewController: NSViewController {
         $0.alignment = .center
     }
     
+    private let reloadButton = NSButton().then{
+        $0.image = NSImage(systemSymbolName: "arrow.triangle.2.circlepath", accessibilityDescription: "arrow")
+        $0.action = Selector(("reloadTableView"))
+        $0.bezelStyle = .inline
+    }
     
     func addView(){
         view.addSubview(tableView)
         view.addSubview(mainTextView)
+        view.addSubview(reloadButton)
     }
     
     func setLayout(){
@@ -49,6 +55,11 @@ final class ViewController: NSViewController {
             make.top.equalToSuperview().offset(15)
             make.height.equalTo(30)
             make.width.equalTo(100)
+        }
+        reloadButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(15)
+            make.left.equalTo(mainTextView.snp.right).offset(110)
+            make.size.equalTo(20)
         }
     }
     
@@ -70,7 +81,9 @@ final class ViewController: NSViewController {
         }
     }
     
-    
+    @objc func reloadTableView(){
+        self.tableView.reloadData()
+    }
     
     override var representedObject: Any? {
         didSet {

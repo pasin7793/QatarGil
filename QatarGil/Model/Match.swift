@@ -29,7 +29,7 @@ struct CompetitionName: Codable{
 
 struct Away: Codable{
     let teamName: [AwayTeamName]
-    let score: Int
+    let score: Int = 0
     
     enum CodingKeys: String, CodingKey{
         case teamName = "TeamName"
@@ -38,7 +38,7 @@ struct Away: Codable{
 }
 
 struct AwayTeamName: Codable{
-    let teamDescription: Country
+    let teamDescription: String
     
     enum CodingKeys: String, CodingKey{
         case teamDescription = "Description"
@@ -47,7 +47,7 @@ struct AwayTeamName: Codable{
 
 struct Home: Codable{
     let teamName: [HomeTeamName]
-    let score: Int
+    let score: Int = 0
     
     enum CodingKeys: String, CodingKey{
         case teamName = "TeamName"
@@ -56,7 +56,7 @@ struct Home: Codable{
 }
 
 struct HomeTeamName: Codable {
-    let teamDescription: Country
+    let teamDescription: String
     
     enum CodingKeys: String, CodingKey{
         case teamDescription = "Description"

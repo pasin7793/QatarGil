@@ -14,8 +14,8 @@ final class MainVM{
     }
     
     
-    private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-11-22&utc_offset=10"
-    //private let urlString = "asdf"
+    //private let urlString = "https://fifa-2022-schedule-and-stats.p.rapidapi.com/schedule?date=2022-12-7&utc_offset=10"
+    private let urlString = "asdf"
     
     var match: [MatchList] = []
     
